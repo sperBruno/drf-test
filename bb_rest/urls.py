@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from zappit_posts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('projects.urls'))
+    path('', include('projects.urls')),
+    path('api/posts', views.PostList.as_view()),
+    path('api/posts/<int:pk>', views.PostRetrieveDestroy.as_view()),
+    path('api/posts/<int:pk>/vote', views.VoteCreate.as_view()),
+    path('api-auth', include('rest_framework.urls')) #enables the login button 
 ]

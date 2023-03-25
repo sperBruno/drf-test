@@ -13,3 +13,6 @@ to make migrations
 
 to migrate migrations
 >python manage.py migrate
+
+to run server
+>python manage.py runserver
